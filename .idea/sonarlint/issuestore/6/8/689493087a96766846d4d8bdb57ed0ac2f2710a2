@@ -1,3 +1,4 @@
 
-R
-java:S1128"5Remove this unused import 'com.muhammet.domain.User'.(¿½Ç©8¾Ø™ÀØ1
+z
+java:S1192""XDefine a constant instead of duplicating this literal "Properties Bilgisi...: " 5 times.(üÊ™øÿÿÿÿ8„û¸æØ1
+G	java:S106)"+Replace this use of System.out by a logger.(¥‚Ë8ÏºåØ1

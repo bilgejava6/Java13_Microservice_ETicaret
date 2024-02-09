@@ -59,3 +59,17 @@ FAuthService/src/main/java/com/muhammet/manager/UserProfileManager.java,5/0/501
 LUserService/src/main/java/com/muhammet/dto/request/UserUpdateRequestDto.java,b/7/b77c9e964f15011b0b9977f111b03b691b98a789
 o
 ?UserService/src/main/java/com/muhammet/exception/ErrorType.java,1/f/1f25fb0e591ef2dfbf80af82414229b6a0cc93f3
+@
+user-service.log,0/e/0ed33517faec5ed595e08e5e746346adfa52ebc1
+I
+ConfigServer/build.gradle,f/a/fa11b4e11818f8908a8d4af4bec40b2e95070692
+a
+1ConfigServer/src/main/java/com/muhammet/Main.java,9/e/9e8bb0ffedf7599da5a0f4d9a8ec55a09e6d3165
+t
+DConfigServer/src/main/java/com/muhammet/ConfigServerApplication.java,5/e/5e0ac72f218abc1e15b90bf10ba4046922d2b9cd
+S
+#.idea/sonarlint/issuestore/index.pb,9/f/9fe84ebb15faf917b7def6236dba604453cc61e0
+?
+settings.gradle,0/5/05efc8b1657769a27696d478ded1e95f38737233
+]
+-.idea/sonarlint/securityhotspotstore/index.pb,8/8/88a9255124c95bdc913197c120a8d560edc59c8e

@@ -19,7 +19,11 @@ ext{
             mapstructProcessor       : "org.mapstruct:mapstruct-processor:${versions.mapstruct}",
             openApi                  : "org.springdoc:springdoc-openapi-starter-webmvc-ui:${versions.openApi}",
             postgreSQL               : "org.postgresql:postgresql:${versions.postgresql}",
-            springCloudOpenFeign     : "org.springframework.cloud:spring-cloud-starter-openfeign:${versions.springCloud}"
+            springCloudOpenFeign     : "org.springframework.cloud:spring-cloud-starter-openfeign:${versions.springCloud}",
+            springCloudConfig        : "org.springframework.cloud:spring-cloud-starter-config:${versions.springCloud}",
+            springCloudConfigServer  : "org.springframework.cloud:spring-cloud-config-server:${versions.springCloud}",
+            springCloudConfigClient  : "org.springframework.cloud:spring-cloud-config-client:${versions.springCloud}"
+
 
 
 

@@ -57,9 +57,11 @@
    db.createUser({user: "bilgeUser",pwd: "bilgeUser*",roles: ["readWrite","dbAdmin"]}) 
 ```
 
-    
+
 
 
 ## Serevisler arası iletişim
 
-    
+## Application.yml bilgisini config serverdan almak ve configure etmek.
+    Application Properties (yml) için gerekli configler.
+    https://docs.spring.io/spring-boot/docs/current/reference/html/application-properties.html
