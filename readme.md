@@ -65,3 +65,11 @@
 ## Application.yml bilgisini config serverdan almak ve configure etmek.
     Application Properties (yml) için gerekli configler.
     https://docs.spring.io/spring-boot/docs/current/reference/html/application-properties.html
+
+##    
+
+    AA - ghp_1mejOFCl5f8Ih
+
+    BB - x2LKo2mC2F8u
+
+    CC - Hnywk4DDaYN
