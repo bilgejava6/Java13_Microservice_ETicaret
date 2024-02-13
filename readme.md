@@ -57,6 +57,11 @@
    db.createUser({user: "bilgeUser",pwd: "bilgeUser*",roles: ["readWrite","dbAdmin"]}) 
 ```
 
+## Docker üzerinde Redis Single Node oluşturmak
+
+```bash
+    docker run --name java13-redis -p 6379:6379 -d redis
+```
 
 
 
