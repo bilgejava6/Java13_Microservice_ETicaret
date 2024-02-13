@@ -1,14 +1,22 @@
 package com.muhammet.controller;
 
 
+import com.muhammet.domain.User;
+import com.muhammet.dto.request.DefaultRequestDto;
 import com.muhammet.dto.request.UserSaveRequestDto;
 import com.muhammet.dto.request.UserUpdateRequestDto;
+import com.muhammet.exception.ErrorType;
+import com.muhammet.exception.UserServiceException;
 import com.muhammet.service.UserService;
+import com.muhammet.utility.JwtTokenManager;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
 
 import static com.muhammet.constants.RestApiUrls.*;
 
@@ -24,6 +32,7 @@ import static com.muhammet.constants.RestApiUrls.*;
 @Slf4j
 public class UserController {
     private final UserService userService;
+    private final JwtTokenManager jwtTokenManager;
 
     @Value("${userservice.deger2}")
     private String deger2;
@@ -58,4 +67,14 @@ public class UserController {
         userService.update(dto);
         return ResponseEntity.ok().build();
     }
+
+    @GetMapping(GET_ALL)
+    public ResponseEntity<List<User>> getAll(DefaultRequestDto dto){
+        Optional<Long> authId = jwtTokenManager.validateToken(dto.getToken());
+        if (authId.isEmpty())
+            throw new UserServiceException(ErrorType.INVALID_TOKEN_ERROR);
+        return ResponseEntity.ok(userService.findAll());
+    }
+
+
 }

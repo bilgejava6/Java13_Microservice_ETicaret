@@ -9,6 +9,7 @@ import com.muhammet.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -47,5 +48,9 @@ public class UserService {
         updateUser.setPhone(dto.getPhone());
         updateUser.setPhoto(dto.getPhoto());
         userRepository.save(updateUser);
+    }
+
+    public List<User> findAll() {
+        return userRepository.findAll();
     }
 }
