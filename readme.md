@@ -63,6 +63,62 @@
     docker run --name java13-redis -p 6379:6379 -d redis
 ```
 
+```bash
+    docker run  --name redis-gui -d -p 8001:8001 redislabs/redisinsight:1.14.0
+```
+
+## Redis Spring Boot Configuration
+    İlgili bağımlılık eklenir.
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-redis
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis:3.2.2'
+
+    DİKKAT!!!!
+    Redis repository olarak kullanılabileceği gibi, Cache olarakta kullanılabilir, Bu nedenle Spring te Cache i 
+    ve Redis Repostory aktif etmek için gerekli annotasyonları config e eklemeniz uygun olacaktır.
+
+```java
+@Configuration
+@EnableRedisRepositories
+@EnableCaching
+public class RedisConfig {
+
+    @Bean
+    public LettuceConnectionFactory redisConnectionFactory() {
+
+        return new LettuceConnectionFactory(new RedisStandaloneConfiguration("localhost", 6379));
+    }
+
+}
+```
+
+        Rediste cache oluşturmak için, istediğiniz methodun üzerinde @Cachable anatasyonunu ekliyorsunuz
+    böylelikle bu method a girilen değerler için bir Key oluşturuluyor ve return değeri redis üzerinde 
+    cache lenmiş oluyor.
+
+    DİKKAT!!!! Spring Boot üzerinde alınan Cache lerin temizlenmesi
+    1-  Objects.requireNonNull(cacheManager.getCache("user-find-all")).clear();
+    bu işlem bir key e sahip olmayan cache leri temizlemek için kullanılır.
+    2- Objects.requireNonNull(cacheManager.getCache("user-find-all")).evict([KEY]);
+    bu işlem dışarıdan değer alan bir methodun cache lenmiş datalarını özel olarak silmek 
+    için kullanılır.
+    @Cachable("find-by-ad")
+    findByAd("muhammet") -> Redis => find-by-ad::muhammet
+    clear cache -> getCache("find-by-ad").evict("muhammet");
+    Eğer bellir bir cache in tamamını temizlemek isterseniz, 1. maddeyi kullanın.
+
+## ElasticSearch Kurulumu ve Kullanımı
+
+```bash
+    docker network create java13-network
+```
+
+```bash
+    docker run -d --name elasticsearch --net java13-network -p 9200:9200 -p 9300:9300  -e "discovery.type=single-node" -e "ELASTIC_USERNAME=admin"  -e "ELASTIC_PASSWORD=root" -e "ES_JAVA_OPTS=-Xms512m -Xmx1024m" elasticsearch:8.12.1
+```
+
+```bash
+    docker run -d --name kibana --net java13-network -p 5601:5601 kibana:8.12.1
+```
 
 
 ## Serevisler arası iletişim

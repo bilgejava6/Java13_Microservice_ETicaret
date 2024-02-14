@@ -82,3 +82,19 @@ CUserService/src/main/java/com/muhammet/utility/JwtTokenManager.java,f/b/fb35bc
 :
 
 .gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
+F
+RedisConfig/Dockerfile,f/d/fdeed37e725527bf0ba668658e71ab490545bfb0
+F
+RedisConfig/redis.conf,d/b/db16cb96622b887508f20a3cc73259f2e8a31704
+E
+RedisConfig/readme.md,7/b/7b4810b49ffbde4a5860740f8b2fcf9bb32f6796
+n
+>UserService/src/main/java/com/muhammet/config/RedisConfig.java,9/9/99d2e86780194b9d2dcc807265548375a3f33d4b
+V
+&ElasticSearchEgitim/docker-compose.yml,1/f/1f097b9ed589d8e64370bc963881d9546d430612
+H
+ElasticSearchEgitim/.env,3/6/366e9dc1628194bb46c31429e34f4fab46e20cdd
+U
+%ElasticSearchEgitim/egitim_icerigi.md,0/b/0bac2a182052b42f830a289b48c39e11bf6cef9b
+M
+ElasticSearchEgitim/readme.md,7/f/7f0cac85e8fd4301bb3fb4ab08cdb7eeb6904b9f

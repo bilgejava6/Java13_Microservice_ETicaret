@@ -79,18 +79,7 @@ public class UserController {
 
     @GetMapping("/get-string")
     public ResponseEntity<String> getString(String ad){
-        String createString = ad.toUpperCase().concat(" - Hoş geldiniz");
-        /**
-         * DİKKAT!!!
-         * Aşağıya yazılan kod bloğu bir işlemin uzun sürmesi durumunu simüle etmek
-         * için eklenmiştir.
-         */
-        try{
-            Thread.sleep(3000L);
-        }catch (Exception exception){
-            log.error("Beklenmeyen thread hatası");
-        }
-        return ResponseEntity.ok(createString);
+        return ResponseEntity.ok(userService.getString(ad));
     }
 
 
