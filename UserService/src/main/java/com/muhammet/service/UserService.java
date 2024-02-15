@@ -28,6 +28,8 @@ public class UserService {
                         .email(dto.getEmail())
                         .authId(dto.getAuthId())
                 .build());
+
+
         /**
          * Bu işlem exception fırlatabilir, bu nedenle ya try..catch yaparsınız
          * ya da Object null kontrolu yaparsınız.

@@ -12,4 +12,4 @@ spring:
           default-label: "main"
           skip-ssl-validation: true
           username: "bilgejava6"
-          password: ""
+          password: ${GIT_KEY} # bu bilgiyi git işletim sisteminin environment veriable dan al.

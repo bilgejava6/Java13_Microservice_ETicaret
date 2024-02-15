@@ -12,14 +12,15 @@ ext{
     ]
 
     libs = [
-            springBootStarterWeb     : "org.springframework.boot:spring-boot-starter-web:${versions.springBoot}",
-            springBootStarterDataJpa : "org.springframework.boot:spring-boot-starter-data-jpa:${versions.springBoot}",
-            springBootStarterDataMongoDB : "org.springframework.boot:spring-boot-starter-data-mongodb:${versions.springBoot}",
-            springBootStarterDataRedis : "org.springframework.boot:spring-boot-starter-data-redis:${versions.springBoot}",
-            lombok                   : "org.projectlombok:lombok:${versions.lombok}",
-            mapstruct                : "org.mapstruct:mapstruct:${versions.mapstruct}",
-            mapstructProcessor       : "org.mapstruct:mapstruct-processor:${versions.mapstruct}",
-            openApi                  : "org.springdoc:springdoc-openapi-starter-webmvc-ui:${versions.openApi}",
+            springBootStarterWeb                : "org.springframework.boot:spring-boot-starter-web:${versions.springBoot}",
+            springBootStarterDataJpa            : "org.springframework.boot:spring-boot-starter-data-jpa:${versions.springBoot}",
+            springBootStarterDataMongoDB        : "org.springframework.boot:spring-boot-starter-data-mongodb:${versions.springBoot}",
+            springBootStarterDataRedis          : "org.springframework.boot:spring-boot-starter-data-redis:${versions.springBoot}",
+            springBootStarterDataElasticsearch  : "org.springframework.boot:spring-boot-starter-data-elasticsearch:${versions.springBoot}",
+            lombok                              : "org.projectlombok:lombok:${versions.lombok}",
+            mapstruct                           : "org.mapstruct:mapstruct:${versions.mapstruct}",
+            mapstructProcessor                  : "org.mapstruct:mapstruct-processor:${versions.mapstruct}",
+            openApi                             : "org.springdoc:springdoc-openapi-starter-webmvc-ui:${versions.openApi}",
             postgreSQL               : "org.postgresql:postgresql:${versions.postgresql}",
             springCloudOpenFeign     : "org.springframework.cloud:spring-cloud-starter-openfeign:${versions.springCloud}",
             springCloudConfig        : "org.springframework.cloud:spring-cloud-starter-config:${versions.springCloud}",

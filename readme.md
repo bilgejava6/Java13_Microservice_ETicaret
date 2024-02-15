@@ -113,11 +113,30 @@ public class RedisConfig {
 ```
 
 ```bash
-    docker run -d --name elasticsearch --net java13-network -p 9200:9200 -p 9300:9300  -e "discovery.type=single-node" -e "ELASTIC_USERNAME=admin"  -e "ELASTIC_PASSWORD=root" -e "ES_JAVA_OPTS=-Xms512m -Xmx1024m" elasticsearch:8.12.1
+    docker run -d --name elasticsearch --net java13-network -p 9200:9200 -p 9300:9300 -e "xpack.security.enabled=false" -e "xpack.security.transport.ssl.enabled=false" -e "discovery.type=single-node" -e "ELASTIC_USERNAME=admin"  -e "ELASTIC_PASSWORD=root" -e "ES_JAVA_OPTS=-Xms512m -Xmx1024m" elasticsearch:8.12.1
 ```
 
 ```bash
     docker run -d --name kibana --net java13-network -p 5601:5601 kibana:8.12.1
+```
+
+
+    DİKKAT!!!!!
+    Elasticsearch sürümleri ile Spring sürümleri arasında bir uyum olması gerekli. çünkü eski sürümleri kullanabilmek için
+    belli spring boot sürümlrerini kullanmanız gereklidir.
+
+    Spring Boot ile kullanmak için öncelikle bağımlılık ekliyoruz.
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-elasticsearch
+    implementation 'org.springframework.boot:spring-boot-starter-data-elasticsearch:3.2.2'
+
+    İligi elasticsearch e bağlanmak için gerekli olana bağlantı configlerini application.yml içine yazoyoruz.
+
+```yml
+spring:
+  elasticsearch:
+    uris: http://localhost:9200
+    username: admin
+    password: root 
 ```
 
 

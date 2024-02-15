@@ -9,6 +9,10 @@ spring:
       database: UserProfile
       username: bilgeUser
       password: bilgeUser*
+#  elasticsearch:
+#    uris: http://localhost:9200
+#    username: admin
+#    password: root
 
 logging:
   level:
