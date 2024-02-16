@@ -140,6 +140,18 @@ spring:
 ```
 
 
+## RabbitMQ Kurulum ve Kullanım
+    RabbitMQ iki port ile çalışır. 5672 , 15672 bu portlardan;
+    1- 5672 olan port Rest isteklerini işlemek için kullanılır, bu nedenle Spring Boot bu port a bağlanır.
+    2- 15672 olan port arayüz webUI kısmıdır. yönetim ekranı burasıdır.
+
+```bash
+  docker run -d --name java13-rabbit -p 5672:5672 -p 15672:15672  -e RABBITMQ_DEFAULT_USER=admin -e RABBITMQ_DEFAULT_PASS=root rabbitmq:3-management
+```
+
+    Spring boot ile kullanım için;
+    implemantation 'org.springframework.boot:spring-boot-starter-amqp:3.2.2'
+
 ## Serevisler arası iletişim
 
 ## Application.yml bilgisini config serverdan almak ve configure etmek.

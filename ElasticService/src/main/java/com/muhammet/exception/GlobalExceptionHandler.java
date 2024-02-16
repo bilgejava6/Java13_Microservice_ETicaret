@@ -1,6 +1,5 @@
 package com.muhammet.exception;
 
-import jakarta.validation.ConstraintViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -23,20 +22,12 @@ public class GlobalExceptionHandler {
         , HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-    @ExceptionHandler(AuthServiceException.class)
+    @ExceptionHandler(ElasticServiceException.class)
     @ResponseBody
-    public ResponseEntity<ErrorMessage> authServiceHandler(AuthServiceException authServiceException){
-        return new ResponseEntity<>(createErrorMessage(authServiceException,authServiceException.getErrorType()),
-                authServiceException.getErrorType().getHttpStatus());
+    public ResponseEntity<ErrorMessage> elasticServiceHandler(ElasticServiceException elasticServiceException){
+        return new ResponseEntity<>(createErrorMessage(elasticServiceException, elasticServiceException.getErrorType()),
+                elasticServiceException.getErrorType().getHttpStatus());
     }
-
-    @ExceptionHandler(ConstraintViolationException.class)
-    @ResponseBody
-    public ResponseEntity<ErrorMessage> duclicateKeyHandler(ConstraintViolationException duplicateKeyException){
-        return new ResponseEntity<>(createErrorMessage(duplicateKeyException,ErrorType.INTERNAL_ERROR)
-                , HttpStatus.INTERNAL_SERVER_ERROR);
-    }
-
 
 
     @ExceptionHandler(MethodArgumentNotValidException.class)

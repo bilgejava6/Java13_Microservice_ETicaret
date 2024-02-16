@@ -1,10 +1,12 @@
 package com.muhammet.service;
 
 import com.muhammet.domain.User;
+import com.muhammet.dto.request.UserRequestDto;
 import com.muhammet.dto.request.UserSaveRequestDto;
 import com.muhammet.dto.request.UserUpdateRequestDto;
 import com.muhammet.exception.ErrorType;
 import com.muhammet.exception.UserServiceException;
+import com.muhammet.manager.ElasticUserManager;
 import com.muhammet.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -22,19 +24,29 @@ import java.util.Optional;
 public class UserService {
     private final UserRepository userRepository;
     private final CacheManager cacheManager;
+    private final ElasticUserManager userManager;
     public void save(UserSaveRequestDto dto){
-        userRepository.save(User.builder()
+      User user = userRepository.save(User.builder()
                         .userName(dto.getUserName())
                         .email(dto.getEmail())
                         .authId(dto.getAuthId())
                 .build());
-
-
         /**
          * Bu işlem exception fırlatabilir, bu nedenle ya try..catch yaparsınız
          * ya da Object null kontrolu yaparsınız.
          */
         Objects.requireNonNull(cacheManager.getCache("user-find-all")).clear();
+        UserRequestDto userRequestDto = new UserRequestDto(
+                user.getId(),
+                user.getAuthId(),
+                user.getUserName(),
+                user.getEmail(),
+                user.getPhoto(),
+                user.getName(),
+                user.getPhone(),
+                user.getAbout()
+        );
+        userManager.save(userRequestDto);
     }
 
     public void update(UserUpdateRequestDto dto) {

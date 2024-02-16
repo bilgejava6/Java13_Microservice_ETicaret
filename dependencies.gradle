@@ -21,12 +21,13 @@ ext{
             mapstruct                           : "org.mapstruct:mapstruct:${versions.mapstruct}",
             mapstructProcessor                  : "org.mapstruct:mapstruct-processor:${versions.mapstruct}",
             openApi                             : "org.springdoc:springdoc-openapi-starter-webmvc-ui:${versions.openApi}",
-            postgreSQL               : "org.postgresql:postgresql:${versions.postgresql}",
-            springCloudOpenFeign     : "org.springframework.cloud:spring-cloud-starter-openfeign:${versions.springCloud}",
-            springCloudConfig        : "org.springframework.cloud:spring-cloud-starter-config:${versions.springCloud}",
-            springCloudConfigServer  : "org.springframework.cloud:spring-cloud-config-server:${versions.springCloud}",
-            springCloudConfigClient  : "org.springframework.cloud:spring-cloud-config-client:${versions.springCloud}",
-            jwt                      : "com.auth0:java-jwt:${versions.jwt}"
+            postgreSQL                          : "org.postgresql:postgresql:${versions.postgresql}",
+            springCloudOpenFeign                : "org.springframework.cloud:spring-cloud-starter-openfeign:${versions.springCloud}",
+            springCloudConfig                   : "org.springframework.cloud:spring-cloud-starter-config:${versions.springCloud}",
+            springCloudConfigServer             : "org.springframework.cloud:spring-cloud-config-server:${versions.springCloud}",
+            springCloudConfigClient             : "org.springframework.cloud:spring-cloud-config-client:${versions.springCloud}",
+            jwt                                 : "com.auth0:java-jwt:${versions.jwt}",
+            springBootStarerAmqp                : "org.springframework.boot:spring-boot-starter-amqp:${versions.springBoot}"
 
 
     ]
