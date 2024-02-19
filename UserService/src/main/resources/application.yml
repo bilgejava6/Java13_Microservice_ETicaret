@@ -2,6 +2,11 @@ server:
   port: 9094
 
 spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: admin
+    password: root
   data:
     mongodb:
       host: localhost

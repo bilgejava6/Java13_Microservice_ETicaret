@@ -152,6 +152,14 @@ spring:
     Spring boot ile kullanım için;
     implemantation 'org.springframework.boot:spring-boot-starter-amqp:3.2.2'
 
+
+    DİKKAT!!!!!
+    RabbitMQ Desrializable işleminde getirillen yeni güvenlik config nedeniyle şu ENV nin eklenmesi
+    gereklidir. "SPRING_AMQP_DESERIALIZATION_TRUST_ALL=true"
+    Bu environment ı eklemek için user microsevisin main class üzerine sağ tıklayarak
+    run modify configuration diyerek environment variable eklemeniz gerekmektedir.
+    
+
 ## Serevisler arası iletişim
 
 ## Application.yml bilgisini config serverdan almak ve configure etmek.
@@ -165,3 +173,14 @@ spring:
     BB - x2LKo2mC2F8u
 
     CC - Hnywk4DDaYN
+
+
+## BİR PROGRAMCI NELERİ ANADİLİ GİBİ BİLMEK ZORUNDA
+
+    - OOP ve AOP
+    - Data Structures 
+    - Algorithms
+    - Debugging
+    - Java Stream API
+    - Design Patterns
+

@@ -12,6 +12,11 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -96,4 +101,29 @@ public class UserService {
         return createString;
     }
 
+
+    /**
+     *
+     * @param userName
+     * @param page -> sayfa numarası
+     * @param size -> sayfa boyutu
+     * @param sortParameter -> sıralama parametresi yani değişken adı
+     * @param sortDirection -> sıralamanın yönü yani a..z ya da z..a
+     * @return
+     */
+    public Page<User> findAllByUserName(String userName, int page, int size, String sortParameter, String sortDirection) {
+        Pageable pageable;
+        /**
+         * Bir sayfalama oluşturmak için;
+         * 1- bir sayfada kaç kayıt görünecek
+         * 2- hangi sayfayı görünütülemek istiyorsun.
+         * 3- Sıralama yapmak istiyor musun? yapacaksan hangi alanı sıralayacaksın?
+         * 4- sıralama kriteri
+         */
+        Sort sort = Sort.by(Sort.Direction.fromString(sortDirection), sortParameter);
+        pageable = PageRequest.of(page,size,sort);
+        Page<User> result = userRepository
+                .findAllByUserNameContaining(userName, pageable);
+        return result;
+    }
 }

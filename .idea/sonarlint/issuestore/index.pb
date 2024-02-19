@@ -98,8 +98,6 @@ M
 ElasticSearchEgitim/readme.md,7/f/7f0cac85e8fd4301bb3fb4ab08cdb7eeb6904b9f
 K
 ElasticService/build.gradle,e/7/e7dbe06659cd17a8c42f6aa733d37488f04ae7aa
-b
-2ElasticService/src/main/java/org/example/Main.java,1/c/1c4d124baa46c6ea7a5cb5d8eb46f72bea11b54a
 x
 HElasticService/src/main/java/com/muhammet/ElasticServiceApplication.java,2/b/2b3680d71370352dd16f77a1ba2da3389e889931
 j
@@ -128,3 +126,13 @@ r
 BElasticService/src/main/java/com/muhammet/exception/ErrorType.java,4/9/49235fb8788e2ac97e29868dd3765ba2385c0393
 €
 PElasticService/src/main/java/com/muhammet/exception/ElasticServiceException.java,1/4/144c832fc3c233780ac2276ba6acb4d71987d259
+q
+AAuthService/src/main/java/com/muhammet/config/RabbitMQConfig.java,1/c/1c6839645513b41dd64443e451936a4cec792897
+z
+JAuthService/src/main/java/com/muhammet/rabbitmq/model/CreateUserModel.java,7/1/7165367452b308ba9d49f02b5bb0f523ba37fe47
+€
+PAuthService/src/main/java/com/muhammet/rabbitmq/producer/CreateUserProducer.java,f/2/f2990a8fa66aea2d2ad91ab73570e17231118e93
+z
+JUserService/src/main/java/com/muhammet/rabbitmq/model/CreateUserModel.java,5/2/52352fb88187268ea4840f2447fc77467279cbba
+€
+PUserService/src/main/java/com/muhammet/rabbitmq/consumer/CreateUserConsumer.java,e/b/eb762f1db588da5352dbaa9fa039fa4caa242cc9

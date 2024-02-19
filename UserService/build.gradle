@@ -8,4 +8,5 @@ dependencies {
     implementation libs.springBootStarterDataMongoDB
     implementation libs.springBootStarterDataRedis
     implementation libs.springCloudOpenFeign
+    implementation libs.springBootStarerAmqp
 }
