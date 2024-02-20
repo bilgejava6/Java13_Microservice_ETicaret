@@ -7,7 +7,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 import static com.muhammet.constants.RestApiUrls.*;
 @RequiredArgsConstructor
@@ -16,6 +15,7 @@ import static com.muhammet.constants.RestApiUrls.*;
 public class UserController {
     private final UserService userService;
     @PostMapping(ADD)
+    @CrossOrigin("*")
     public ResponseEntity<Void> save(@RequestBody UserRequestDto dto){
         userService.save(dto);
         return ResponseEntity.ok().build();
@@ -23,6 +23,7 @@ public class UserController {
 
 
     @PostMapping(UPDATE)
+    @CrossOrigin("*")
     public ResponseEntity<Void> update(@RequestBody UserRequestDto dto){
         userService.update(dto);
         return ResponseEntity.ok().build();

@@ -136,3 +136,5 @@ z
 JUserService/src/main/java/com/muhammet/rabbitmq/model/CreateUserModel.java,5/2/52352fb88187268ea4840f2447fc77467279cbba
 €
 PUserService/src/main/java/com/muhammet/rabbitmq/consumer/CreateUserConsumer.java,e/b/eb762f1db588da5352dbaa9fa039fa4caa242cc9
+„
+TElasticService/src/main/java/com/muhammet/config/security/ElasticSecurityConfig.java,b/a/ba12c1559f1c8391c4a6859aff631095ad871adf

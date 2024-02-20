@@ -6,4 +6,5 @@ buildscript {
 
 dependencies {
     implementation libs.springBootStarterDataElasticsearch
+    implementation libs.springBootStarterSecurity
 }
