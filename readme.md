@@ -168,7 +168,8 @@ spring:
 
 ## Docker İmage oluşturma
 
-    docker build -t <IMAGE NAME> .
+    docker build -t <HUB_REPOSITORY_NAME/IMAGE NAME:VERSION> .
+    docker build -t javaboost2/auth-service:v.0.1 .
 
 ##    
 

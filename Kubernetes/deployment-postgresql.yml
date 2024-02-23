@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-postgresql
+spec:
+  selector: # Deploymeny objesi pod ları yakalayabilmek için eşleşme arıyor.
+    matchLabels:
+      db: pod-deployment-postgresql
+  template: # Buradan itibaren pod ile alakalı özellikleri yazıyoruz.
+    metadata:
+      labels: # bir pod un etiketi.
+        db: pod-deployment-postgresql
+    spec:
+      containers:
+      - name: pod-postgresql # pod un adı
+        image: postgres # hub.docer üzerindeki image dı (mongo, redis, elasticsearch)
+        resources:
+          limits:
+            memory: "128Mi" # node ın total ram inden ne kadar kullanılacağı
+            cpu: "200m" # node vCpu su 2 ise bu -> 2000M demektir.
+        ports:
+        - containerPort: 5432
+        env: # işletim sistemine eklemek istediğiniz environmentvariable listesini ekliyoruz.
+          - name: POSTGRES_PASSWORD
+            value: root
+
+        
