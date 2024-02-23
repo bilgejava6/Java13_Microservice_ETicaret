@@ -138,3 +138,5 @@ JUserService/src/main/java/com/muhammet/rabbitmq/model/CreateUserModel.java,5/2
 PUserService/src/main/java/com/muhammet/rabbitmq/consumer/CreateUserConsumer.java,e/b/eb762f1db588da5352dbaa9fa039fa4caa242cc9
 „
 TElasticService/src/main/java/com/muhammet/config/security/ElasticSecurityConfig.java,b/a/ba12c1559f1c8391c4a6859aff631095ad871adf
+F
+AuthService/Dockerfile,3/6/36435672d4ba3b53ff24e8284e49ac8e48409261

@@ -166,6 +166,10 @@ spring:
     Application Properties (yml) için gerekli configler.
     https://docs.spring.io/spring-boot/docs/current/reference/html/application-properties.html
 
+## Docker İmage oluşturma
+
+    docker build -t <IMAGE NAME> .
+
 ##    
 
     AA - ghp_1mejOFCl5f8Ih
