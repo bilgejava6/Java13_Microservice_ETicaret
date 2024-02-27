@@ -140,3 +140,9 @@ PUserService/src/main/java/com/muhammet/rabbitmq/consumer/CreateUserConsumer.jav
 TElasticService/src/main/java/com/muhammet/config/security/ElasticSecurityConfig.java,b/a/ba12c1559f1c8391c4a6859aff631095ad871adf
 F
 AuthService/Dockerfile,3/6/36435672d4ba3b53ff24e8284e49ac8e48409261
+T
+$Kubernetes/deployment-postgresql.yml,e/2/e21cdfe19861005410b5394c72665a44bd80b573
+D
+Kubernetes/readme.md,7/4/74ba5f394a814c11f8d474a1c18a4b4875dee32d
+J
+ConfigServerGit/Dockerfile,8/1/81f02988392d13611477134e6a89998329a39d2b

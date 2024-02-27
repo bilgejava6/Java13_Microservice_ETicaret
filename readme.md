@@ -169,7 +169,28 @@ spring:
 ## Docker İmage oluşturma
 
     docker build -t <HUB_REPOSITORY_NAME/IMAGE NAME:VERSION> .
-    docker build -t javaboost2/auth-service:v.0.1 .
+    DİKKAT!!!! MacOS M Chipset kullananlar özellikle platform belirtmelidirler.
+    1- docker build --platform linux/amd64 -t javaboost2/auth-service:v.0.1 .
+
+    2- docker build --platform linux/amd64 -t javaboost2/config-service:v.0.2 .
+
+    
+
+
+
+## Kubernetes POD
+
+        Pod, Nodes içinde yer alan sanal Pc lerdir. içerisinde image ya da image lar barındırabilir. Bir yaşam döngüsü vardır
+    bu nedenle başlar, işlemlerini yürütür, bir süre sonra kaybolur. Bu nedenle bir pod restart olsa bile aynı şekilde 
+    kalmaz yani bir pod yeniden başlamaz yeniden doğar. Bu nedenle yer yeni başlamada yeni bir pod oluşur  ve ip adresi
+    değişir.
+    - Pod lar yeniden doğduğu için içinde barındırdığı bilgiler silinir.
+    - Bağlantılar var ise kaybolur.
+
+        Bir pod DB olarak kullanılıyor ise içinde tuttuğu tüm bilgiler restart ettiğinde kaybolur. peki Çözüm nedir?
+    her PC nin bir harddiski vardır ve içinde bulunur, ancak kubernetes yapısında harddisk olarak adlandırdığımız 
+    bileleşenlere karşılık gelen Volume kavramı bir pod un içinden kubenetes cluster içine alınabilir. Böylece pod
+    ayağa kalkarken kendisine tahsis edilen Volume a bağlanarak verilerini oradan çekebilir.
 
 ##    
 
