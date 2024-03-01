@@ -271,4 +271,3 @@ spring:
     - yukarıda oluşan sorunlar çözüldükten sonra bile hata hata alınıyor ise, sorun sisemseldir çözebilmek için
     servis ve depoylment objelerini de silip tekrar oluşturmalıyız.
 
-    

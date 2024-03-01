@@ -4,4 +4,5 @@ include 'UserService'
 include 'ConfigServer'
 include 'ConfigServerGit'
 include 'ElasticService'
+include 'GatewayService'
 
