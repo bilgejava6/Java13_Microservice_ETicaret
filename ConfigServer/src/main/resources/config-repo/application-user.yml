@@ -2,6 +2,11 @@ server:
   port: 9094
 
 spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: admin
+    password: root
   data:
     mongodb:
       host: localhost
@@ -9,6 +14,10 @@ spring:
       database: UserProfile
       username: bilgeUser
       password: bilgeUser*
+#  elasticsearch:
+#    uris: http://localhost:9200
+#    username: admin
+#    password: root
 
 logging:
   level:

@@ -158,7 +158,9 @@ spring:
     gereklidir. "SPRING_AMQP_DESERIALIZATION_TRUST_ALL=true"
     Bu environment ı eklemek için user microsevisin main class üzerine sağ tıklayarak
     run modify configuration diyerek environment variable eklemeniz gerekmektedir.
-    
+
+    http://34.155.28.255:8888/application-user.yml    
+
 
 ## Serevisler arası iletişim
 
@@ -167,12 +169,24 @@ spring:
     https://docs.spring.io/spring-boot/docs/current/reference/html/application-properties.html
 
 ## Docker İmage oluşturma
+    İmage Oluşturmak için 
+    - İlk olarak gradle ile ilgili modül ün build işlemi yapılır.
+    - İkinci aşamada gradle ile builddependents yapılır.
+    - sonra Eğe konum olarak ilgili modülün dizini içinde değil isek, terminal ekranından 
+    ilgili modülün dizinine geçiş yaparız. Bunu yapmak için kullanabileceğiniz komutlar
+    > cd .. // bir üst dizine geçer
+    > cd <modul_adı> ilgili modülün içine giriş yapar
+    - terminal ekranında aşağıda bulunan ilgili modül için docker build komutu çalıştırılır.
+    - son olarak ta docker desktop üzerinden docker hub e push işlemi yapılır.
 
     docker build -t <HUB_REPOSITORY_NAME/IMAGE NAME:VERSION> .
     DİKKAT!!!! MacOS M Chipset kullananlar özellikle platform belirtmelidirler.
-    1- docker build --platform linux/amd64 -t javaboost2/auth-service:v.0.1 .
+
+    1- docker build --platform linux/amd64 -t javaboost2/auth-service:v.0.2 .
 
     2- docker build --platform linux/amd64 -t javaboost2/config-service:v.0.2 .
+
+    3- docker build --platform linux/amd64 -t javaboost2/user-service:v.0.2 .
 
     
 
@@ -210,3 +224,51 @@ spring:
     - Java Stream API
     - Design Patterns
 
+## KUBERNETES SORUNLAR - ÇÖZÜM ÖNERİLERİ
+
+    - Temel Komutlar
+    * kubectl get [KUBERNETES OBJESI] -> görüntülemek istediğiniz objelerin listesini getirir.
+        - kubectl get pods
+        - kubectl get deployments
+        - kubectl get services
+        - kubectl get nodes
+        - kubectl get cronjobs
+        - kubectl get jobs
+        - kubectl get secrets
+    ** kubectl get pods -o wide -> objenin daha detaylı bilgisini listeler
+    * kubectl describe [KUBERNETES OBJESI] [OBJENIN ADI] -> objenin detayını getirir.
+        - kubectl describe pods <POD ADI>
+        - kubectl describe deployments <DEPLOYMENT ADI>
+        - kubectl describe services <SERVICE ADI>
+    * kubectl top [KUBERNETES OBJESI] -> objenin cpu ve memory bilgisini getirir.
+        - kubectl top pods <POD ADI>
+        - kubectl top nodes <DEPLOYMENT ADI>
+    * kubectl logs [KUBERNETES OBJESI] [OBJENIN ADI] -> objenin loglarını getirir.
+    DİKKAT!! bu kullanım log bilgisini tek seferlik o an için oluşmuş log ları verir.
+        - kubectl logs pods <POD ADI>
+    * kubectl logs -f [KUBERNETES OBJESI] [OBJENIN ADI] -> objenin loglarını anlık olarak takip etmek için kullanır.
+    DİKKAT!!! bu kullanımda log lar sürekli izlendiği için çıkmak istediğiniz CTRL+C tuş kombinasyonunu kullanın.
+    * kubectl delete [KUBERNETES OBJESI] [OBJENIN ADI] -> objeyi siler.
+    - kubectl delete pods <POD ADI>
+    - kubectl delete deployments <DEPLOYMENT ADI>
+    - kubectl delete services <SERVICE ADI>
+    DİKKAT!!!, pod lar eğer bir deployment objesine bağlı ise sadece pod silinir sonra aynı özellikte yeni bir 
+    pod ayağa kalkar. Eğer tamamen podları silmek istiyorsanız o zaman bğlı bulunduğu deployment objesini silmek
+    zorundasınız.
+    
+    ** Auth Micro Servisine ulaşamıyorum(ip:9094/swagger-ui/index.html). Connection Error hatası alıyorum.
+    - pod ayakta mı reset felan atıyormu buna bakın.
+    - kuberntes clusterı içinde olan bir pod a erişim servis objesi ile sağlanır bu nedenle servis objelerini listeleyin
+    - dışarıdan erişim için External-IP gereklidir, bu nedenle ip adresini ve servis objesinin LoadBalancer olup 
+    olmadığını kontrol edin.
+    - servis objesinin iç yapısında bulunan ClusterIP bacağına pod ların bağlanmış olması gereklidir. Bu kontrol 
+    etmelisiniz. Servis Objesine describe komutu ile bakın. Burada Endpoints şeklinde bir özellik olacak orada
+    sizin pod larınızın ip bilgisinin burada olması gereklidir. Eğer burası boş ise sorun vardır.
+    bu sorunun temel kaynağı deployment objesini oluştururken girdiğiniz "label" ile servis objesinin oluştururken
+    girmiş olduğunuz "selector" bilgileri uyumsuz olduğu için bu sorun oluşabilir kontrol ederek düzeltiniz.
+    - Etiketlerin doğruluğunu nasıl test edebiliriz? iki objeye de (POD, SERVICE) describe komutu ile detaylandırıp
+    kontrol edebilirsiniz.
+    - yukarıda oluşan sorunlar çözüldükten sonra bile hata hata alınıyor ise, sorun sisemseldir çözebilmek için
+    servis ve depoylment objelerini de silip tekrar oluşturmalıyız.
+
+    

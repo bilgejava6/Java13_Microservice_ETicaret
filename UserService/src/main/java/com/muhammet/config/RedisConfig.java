@@ -1,5 +1,6 @@
 package com.muhammet.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,11 +12,13 @@ import org.springframework.data.redis.repository.configuration.EnableRedisReposi
 @EnableRedisRepositories
 @EnableCaching
 public class RedisConfig {
+    @Value("${myapplication.redis.host}")
+    private String redisHost;
 
     @Bean
     public LettuceConnectionFactory redisConnectionFactory() {
 
-        return new LettuceConnectionFactory(new RedisStandaloneConfiguration("localhost", 6379));
+        return new LettuceConnectionFactory(new RedisStandaloneConfiguration(redisHost, 6379));
     }
 
 }

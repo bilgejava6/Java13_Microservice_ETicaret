@@ -51,7 +51,7 @@ public class UserService {
                 user.getPhone(),
                 user.getAbout()
         );
-        userManager.save(userRequestDto);
+//        userManager.save(userRequestDto);
     }
 
     public void update(UserUpdateRequestDto dto) {
