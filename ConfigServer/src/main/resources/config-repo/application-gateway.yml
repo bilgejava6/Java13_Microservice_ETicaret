@@ -1,0 +1,45 @@
+server:
+  port: 80
+
+
+spring:
+  main:
+    web-application-type: reactive
+  cloud:
+    gateway:
+      globalcors:
+        add-to-simple-url-handler-mapping: true
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedHeaders: "*"
+            allowedMethods:
+              - GET
+              - POST
+      default-filters:
+        # gelen URL -> http://localhost/auth/get-service-name
+        # düzenlenecek ->  segment -> get-service-name
+        # düzenlenen -> http://localhost:9090/dev/v1/auth/get-service-name
+        - RewritePath= /(?<segment>.*) , /dev/v1/$\{segment}
+      routes:
+        - id: auth-service
+          # Olması gereken          -> http://localhost:9090/dev/v1/auth/get-service-name
+          uri: http://localhost:9090 # http://localhost:9090/auth/get-service-name
+          predicates:
+            - Path=/auth/**  # http://localhost/auth/get-service-name
+          filters:
+            - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+            - name: CircuitBreaker
+              args:
+                name: auth
+                fallbackUri: forward:/fallback/auth
+        - id: user-service
+          uri: http://localhost:9094
+          predicates:
+            - Path=/user/**, /profile/**
+          filters:
+            - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+            - name: CircuitBreaker
+              args:
+                name: user
+                fallbackUri: forward:/fallback/user

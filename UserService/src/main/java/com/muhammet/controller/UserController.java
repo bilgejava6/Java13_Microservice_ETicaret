@@ -89,4 +89,8 @@ public class UserController {
         return ResponseEntity.ok(userService.findAllByUserName(userName, page, size, sortParameter, sortDirection));
     }
 
+    @GetMapping("/get-service-name")
+    public ResponseEntity<String> getServiceName(){
+        return ResponseEntity.ok("UserService is running...");
+    }
 }

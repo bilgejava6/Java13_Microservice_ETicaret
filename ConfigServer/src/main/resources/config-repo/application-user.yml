@@ -27,7 +27,9 @@ logging:
 #  file:
 #    name: user-service.log
 
-
+myapplication:
+  redis:
+    host: localhost
 
 userservice:
   deger1: "1. Değer"

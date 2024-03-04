@@ -1,11 +1,8 @@
-server:
-  port: 80
-
 spring:
-  main:
-    web-application-type: reactive
   cloud:
-    gateway:
-      default-filters:
-        - RewritePath=
-      routes:
+    config:
+      uri: ${CONFIG_SERVER}
+  config:
+    import: "configserver:"
+  application:
+    name: application-gateway

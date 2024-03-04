@@ -154,3 +154,7 @@ K
 GatewayService/build.gradle,4/c/4cde3707b87edf2e5de09ae5d48bf2eb4e978341
 q
 AGatewayService/src/main/java/com/muhammet/GatewayApplication.java,8/e/8e3fe03d1bea862ad5be828ca5b8a93f5935bbcf
+€
+PGatewayService/src/main/java/com/muhammet/controller/FallbackAuthController.java,8/b/8b086ed405c81c91a27ebfee55c86d86f5c461d4
+I
+GatewayService/Dockerfile,c/7/c77ea3a7eecb3215d31a2de11f54c7ac4c611930

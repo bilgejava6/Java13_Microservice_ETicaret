@@ -10,10 +10,7 @@ import com.muhammet.utility.JwtTokenManager;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -27,11 +24,13 @@ public class AuthController {
     private final JwtTokenManager jwtTokenManager;
 
     @PostMapping(REGISTER)
+    @CrossOrigin("*")
     public ResponseEntity<Boolean> register(@RequestBody @Valid RegisterRequestDto dto){
         return ResponseEntity.ok(authService.register(dto));
     }
 
     @PostMapping(LOGIN)
+    @CrossOrigin("*")
     public ResponseEntity<String> doLogin(@RequestBody @Valid LoginRequestDto dto){
         Optional<Auth> auth = authService.doLogin(dto);
         if (auth.isEmpty())
@@ -41,4 +40,10 @@ public class AuthController {
             throw new AuthServiceException(ErrorType.ERROR_CREATE_TOKEN);
         return ResponseEntity.ok(token.get());
     }
+
+    @GetMapping("/get-service-name")
+    public ResponseEntity<String> getServiceName(){
+        return ResponseEntity.ok("AuthService is running...");
+    }
+
 }

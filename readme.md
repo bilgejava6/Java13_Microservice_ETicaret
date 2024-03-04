@@ -182,11 +182,13 @@ spring:
     docker build -t <HUB_REPOSITORY_NAME/IMAGE NAME:VERSION> .
     DİKKAT!!!! MacOS M Chipset kullananlar özellikle platform belirtmelidirler.
 
-    1- docker build --platform linux/amd64 -t javaboost2/auth-service:v.0.2 .
+    1- docker build --platform linux/amd64 -t javaboost2/auth-service:v.0.3 .
 
     2- docker build --platform linux/amd64 -t javaboost2/config-service:v.0.2 .
 
     3- docker build --platform linux/amd64 -t javaboost2/user-service:v.0.2 .
+
+    4- docker build --platform linux/amd64 -t javaboost2/gateway-service:v.0.1 .
 
     
 
@@ -271,3 +273,10 @@ spring:
     - yukarıda oluşan sorunlar çözüldükten sonra bile hata hata alınıyor ise, sorun sisemseldir çözebilmek için
     servis ve depoylment objelerini de silip tekrar oluşturmalıyız.
 
+
+
+## GATEWAY KULLANIMI
+
+    gateway için iki önemli nokta var;
+    1- gelen isteğin URL üzerinden yakalanması (bunu kural olarak tanımlayacağız)
+    2- isteğin URL path in istenilen service yönlenecek şekilde tekrar düzenlenmesi (rewritepath)
