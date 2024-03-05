@@ -225,6 +225,18 @@ spring:
     - Debugging
     - Java Stream API
     - Design Patterns
+    - Threads basics(runnable, callable) ne demektir? çalış
+    - Threads sync (join, wait, notify) thread yaşam döngüsü konularını iyi bil
+    - Threads volatile vs syncronized nedir? Aralarındaki farklar
+    - Threads start twice ne anlama gelir.
+    - Deadlock thread ler de kilitlenme nedir? Iyi bil
+    - Composition over inheritance 
+    - DI, IoC, AOP, LSP
+    - Hibernate Lazy Loading ?
+    - Normalization theory nedir? anlat
+    - Rest-restful nedir? Aralarındaki farklar
+
+
 
 ## KUBERNETES SORUNLAR - ÇÖZÜM ÖNERİLERİ
 

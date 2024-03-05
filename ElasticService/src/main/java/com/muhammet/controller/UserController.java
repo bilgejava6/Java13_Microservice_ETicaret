@@ -5,6 +5,7 @@ import com.muhammet.dto.request.UserRequestDto;
 import com.muhammet.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -30,6 +31,7 @@ public class UserController {
     }
 
     @GetMapping(GET_ALL)
+    @PreAuthorize("hasAnyAuthority('ADMIN','ALI_DAYI','SUPER_USER')")
     public ResponseEntity<Iterable<User>> getAll(){
         return  ResponseEntity.ok(userService.getAll());
     }

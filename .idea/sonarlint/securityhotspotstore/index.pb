@@ -164,3 +164,5 @@ v
 FElasticService/src/main/java/com/muhammet/utility/JwtTokenManager.java,c/c/cc0d557e488e1e3e292b029ecfe3dedcb7e216be
 |
 LElasticService/src/main/java/com/muhammet/config/security/JwtUserDetail.java,a/a/aa46771b8a8c46b15a6aa0a51c70cdf41c8b9b82
+M
+spring_framework_interview.md,e/5/e50d2dbe689274a0f9b271d6dff18a3f943ad0f5
