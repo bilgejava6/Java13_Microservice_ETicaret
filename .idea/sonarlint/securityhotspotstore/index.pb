@@ -158,3 +158,9 @@ AGatewayService/src/main/java/com/muhammet/GatewayApplication.java,8/e/8e3fe03d
 PGatewayService/src/main/java/com/muhammet/controller/FallbackAuthController.java,8/b/8b086ed405c81c91a27ebfee55c86d86f5c461d4
 I
 GatewayService/Dockerfile,c/7/c77ea3a7eecb3215d31a2de11f54c7ac4c611930
+|
+LElasticService/src/main/java/com/muhammet/config/security/JwtAuthFilter.java,1/7/1713103af4744e001d8b4893510f17a74bc347c5
+v
+FElasticService/src/main/java/com/muhammet/utility/JwtTokenManager.java,c/c/cc0d557e488e1e3e292b029ecfe3dedcb7e216be
+|
+LElasticService/src/main/java/com/muhammet/config/security/JwtUserDetail.java,a/a/aa46771b8a8c46b15a6aa0a51c70cdf41c8b9b82

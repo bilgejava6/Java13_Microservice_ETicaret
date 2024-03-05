@@ -8,11 +8,17 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 @EnableMethodSecurity
 @Slf4j
 public class ElasticSecurityConfig {
+
+    @Bean
+    public JwtAuthFilter getJwtAuthFilter(){
+        return new JwtAuthFilter();
+    }
 
     /**
      * Spring security ortamda gelen istekleri işlemek yani filtrelemek için SecurityFilterChain e ihtiyaç
@@ -54,10 +60,11 @@ public class ElasticSecurityConfig {
         httpSecurity.authorizeHttpRequests(req->
                 req.requestMatchers(
                         "/swagger-ui/**",
-                        "/v3/api-docs/**",
-                        "/dev/v1/elastic/**"
-
+                        "/v3/api-docs/**"
                 ).permitAll()
+                        .requestMatchers("/dev/v1/elastic/**").hasAuthority("AYSE_TEYZE")
+                        .requestMatchers("/dev/v1/admin/**").hasAuthority("ADMIN")
+
                         .anyRequest()
                                 .authenticated()
         );
@@ -76,7 +83,7 @@ public class ElasticSecurityConfig {
         httpSecurity.csrf(AbstractHttpConfigurer::disable);
 
         log.info("*****  Tüm istekler buradan geçecek. *****");
-        httpSecurity.addFilterBefore(null,null);
+        httpSecurity.addFilterBefore(getJwtAuthFilter(), UsernamePasswordAuthenticationFilter.class);
         return httpSecurity.build();
     }
 }
